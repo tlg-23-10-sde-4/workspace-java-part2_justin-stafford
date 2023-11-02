@@ -2,6 +2,7 @@ package com.entertainment;
 
 import java.util.Objects;
 
+// Natural order is defined by sort key 'brand' (String)
 public class Television implements Comparable<Television> {
     // instance variables
     private String brand;
@@ -60,7 +61,6 @@ public class Television implements Comparable<Television> {
 
     @Override
     public int hashCode() {
-        System.out.println("hashCode called");
         /*
          * This is a poorly written hash function, because it easily yields "hash collisions."
          * A hash collision is when "different" objects have the same hash code (just by coincidence).
@@ -76,7 +76,6 @@ public class Television implements Comparable<Television> {
 
     @Override
     public boolean equals(Object obj) {
-        System.out.println("equals called");
         boolean result = false;
 
         // 'this' (me) and 'obj' refer to the same physical object in memory!
