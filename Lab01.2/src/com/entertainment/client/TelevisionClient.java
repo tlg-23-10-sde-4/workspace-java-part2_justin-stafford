@@ -14,9 +14,9 @@ class TelevisionClient {
         Television tvC = new Television("Samsung", 32);
         Television tvD = new Television("LG", 12);
 
-        System.out.println("tvA == tvB: "      + (tvA == tvB));     // obviously false
-        System.out.println("tvA.equals(tvB): " + tvA.equals(tvB));  // this is true now
-        System.out.println();
+        //System.out.println("tvA == tvB: "      + (tvA == tvB));     // obviously false
+        //System.out.println("tvA.equals(tvB): " + tvA.equals(tvB));  // this is true now
+        //System.out.println();
 
         // System.out.println(tvA.hashCode());
         // System.out.println(tvB.hashCode());
@@ -25,6 +25,12 @@ class TelevisionClient {
         Set<Television> tvs = new TreeSet<>();
         tvs.add(tvA);
         tvs.add(tvB);  // should be rejected as a duplicate
+        tvs.add(tvC);
+        tvs.add(tvD);
+
         System.out.println("The size of the set is: " + tvs.size());
+        for (Television tv : tvs) {
+            System.out.println(tv);
+        }
     }
 }
