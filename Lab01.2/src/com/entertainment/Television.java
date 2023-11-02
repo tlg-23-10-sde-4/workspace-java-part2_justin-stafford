@@ -2,7 +2,13 @@ package com.entertainment;
 
 import java.util.Objects;
 
-// Natural order is defined by sort key 'brand' (String)
+// To be "consistent with equals" whatever fields we use for equals() and hashCode() are.
+// we MUST use the equals() and hashCode() methods to compare two Television objects.
+//Tree set uses comparable interface to compare two Television objects.
+//Hashset uses equals() and hashCode() methods to compare two Television objects.
+
+//That means we'll swithc to a primary sort key "brand", and when tied on "brand"
+// then we need to break the tie by "channel".
 public class Television implements Comparable<Television> {
     // instance variables
     private String brand;
@@ -92,11 +98,18 @@ public class Television implements Comparable<Television> {
         return result;
     }
 
-    // Natural order is defined by sort key 'brand' (String)
+    // Primary sort key "brand"
+    //Secondary sort key "volume" (int)
     @Override
     public int compareTo(Television other) {
-        return this.getBrand().compareTo(other.getBrand());
+        int result = this.getBrand().compareTo(other.getBrand());
+
+        if (result == 0) { // tied on brand, i.e., they have the same brand
+            result = this.getVolume() - other.getVolume();
+        }
+        return result;
     }
+
 
     @Override
     public String toString() {
