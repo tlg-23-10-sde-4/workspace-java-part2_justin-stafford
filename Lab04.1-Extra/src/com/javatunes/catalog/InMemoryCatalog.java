@@ -121,11 +121,11 @@ public class InMemoryCatalog implements Catalog {
      * For example, Madonna's first album is simply titled, "Madonna."
     *  findSelfTitledAlbums()
      */
-public Collection<MusicItem> findSelfTitled (String title) {
+public Collection<MusicItem> findSelfTitled () {
     Collection<MusicItem> result = new ArrayList<>();
 
     for (MusicItem item : catalogData) {
-        if (item.getTitle().equals(title)) {   //artist = title
+        if (item.getTitle().equals(item.getArtist())) {   //artist = title
             result.add(item);
         }
     }

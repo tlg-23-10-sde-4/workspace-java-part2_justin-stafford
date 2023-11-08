@@ -6,15 +6,20 @@
  * Copyright LearningPatterns Inc.
  */
 
-package com.javatunes.catalog.test;
+package com.javatunes.catalog;
 
 import com.javatunes.catalog.InMemoryCatalog;
 import com.javatunes.catalog.MusicCategory;
 import com.javatunes.catalog.MusicItem;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 
 import java.util.Collection;
 
-class InMemoryCatalogTest {
+public class InMemoryCatalogTest {
+    private InMemoryCatalog catalog;
 
     /*
      * One by one, complete each test method below, and then "activate" it by
@@ -38,6 +43,54 @@ class InMemoryCatalogTest {
 //        testAveragePrice();
 //        testFindCheapest();
     }
+
+    @Before
+    public void setUp()  {
+        catalog = new InMemoryCatalog();
+    }
+
+    @Test
+    public void findSelfTitled_shouldReturnCollection_withArtist() {
+    }
+
+    @Test
+    public void findByCategory_shouldReturnCollection_categoryFound() {
+        Collection<MusicItem> items = catalog.findByCategory(MusicCategory.POP);
+        
+        assertEquals(4, items.size());
+        for (MusicItem item : items) {
+            assertTrue(MusicCategory.POP == item.getMusicCategory());
+            assertSame(MusicCategory.POP, item.getMusicCategory());
+        }
+    }
+
+    @Test
+    public void findSelfTitled_shouldReturnCollection_withArtistSameAsTitle() {
+        Collection<MusicItem> items = catalog.findSelfTitled();
+
+        for (MusicItem item : items) {
+            assertTrue(item.getTitle().equals(item.getArtist()));
+        }
+    }
+
+    @Test
+    public void findById_shouldReturnMusicItem_idFound() {
+        MusicItem item = catalog.findById(1L);
+
+        assertNotNull(item);
+        assertEquals(1L, item.getId().longValue());  // TODO: follow-up on how to use longValue
+    }
+
+    @Test
+    public void findByID_shouldReturnNull_idNotFound() {
+        MusicItem item = catalog.findById(19L);
+
+        assertNull(item);
+        assertTrue(item == null);
+
+    }
+
+
     private static void testFindById() {
         InMemoryCatalog catalog = new InMemoryCatalog();
 

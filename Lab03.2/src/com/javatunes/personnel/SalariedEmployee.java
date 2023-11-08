@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class SalariedEmployee extends Employee {
-  private static final double SALARIED_TAX_RATE = 0.30;  // The tax rate constant, should match the test
+  private static final double SALARIED_TAX_RATE = 0.25;  // The tax rate constant, should match the test
   private Double salary;
 
   public SalariedEmployee() {

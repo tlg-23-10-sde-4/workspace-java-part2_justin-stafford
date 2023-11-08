@@ -6,8 +6,6 @@ import java.sql.Date;
 import static org.junit.Assert.*;
 
 
-import static org.junit.Assert.*;
-
 public class SalariedEmployeeTest {
     private static final double SALARY_TAX_RATE = 0.30;
     // fixture -> business object(s) under test case

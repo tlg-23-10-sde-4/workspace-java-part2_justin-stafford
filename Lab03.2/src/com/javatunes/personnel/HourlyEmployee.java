@@ -14,14 +14,10 @@ import java.util.Objects;
 
 public class HourlyEmployee
 extends Employee {
-  private static final double THEHOURLY_TAX_RATE = 0.30; ;
+  private static final double HOURLY_TAX_RATE = 0.25; ;
   private Double rate;
   private Double hours;
 
-  public HourlyEmployee() {
-    final double THEHOURLY_TAX_RATE = 0.30;
-  }
-  
   public HourlyEmployee(String name, Date hireDate) {
     super(name, hireDate);
   }
@@ -41,7 +37,7 @@ extends Employee {
 
   @Override  // interface TaxPayer
   public double payTaxes() {
-    double taxes = THEHOURLY_TAX_RATE * pay(); // This should probably be based on the total pay.
+    double taxes = HOURLY_TAX_RATE * pay(); // This should probably be based on the total pay.
     System.out.println(getName() + " paid taxes of " + taxes);
     return taxes;
   }
