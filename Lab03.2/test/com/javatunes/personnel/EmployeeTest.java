@@ -29,8 +29,6 @@ public class EmployeeTest {
             public double payTaxes() {return 0;}
         };
     }
-
-
             @Test
             public void equals_shouldReturnFalse_differentName_sameHireDate() {
                 emp2.setName("James");
